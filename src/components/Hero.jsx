@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
-import pictureImg from '../assets/Portfolio/picture.png';
+import portraitImg from '../assets/Portfolio/b2affbd4-f396-4bee-8ec8-6cecfae347ff.jpg';
 
 const Hero = () => {
   const sectionRef = useRef(null);
@@ -12,10 +12,10 @@ const Hero = () => {
   const contentRef = useRef(null);
 
   const developerRoles = [
-    'FEATURE FILM // FULL-STACK ARCHITECT',
-    'ORIGINAL SERIES // AI & ML SPECIALIST',
-    'BLOCKBUSTER // DISTRIBUTED SYSTEMS',
-    'ACCLAIMED // ALGORITHMIC PROBLEM SOLVER'
+    'FEATURE FILM // FULL STACK DEVELOPER',
+    'ORIGINAL SERIES // AI ENGINEER · LLM · RAG',
+    'BLOCKBUSTER // WEB EXPERIENCES',
+    'ACCLAIMED // INTELLIGENT SYSTEMS'
   ];
 
   useEffect(() => {
@@ -133,6 +133,7 @@ const Hero = () => {
 
   return (
     <section
+      id="home"
       ref={sectionRef}
       className="relative w-full h-screen bg-[#050505] overflow-hidden flex flex-col justify-between select-none cursor-none"
     >
@@ -194,28 +195,33 @@ const Hero = () => {
           <div className="lg:col-span-5 flex flex-col items-start space-y-5 text-left">
             
             <div className="hero-anim-item flex items-center gap-3">
-              <span className="px-2.5 py-0.5 bg-red-600 text-white font-black text-xs rounded tracking-widest shadow-[0_0_20px_rgba(229,9,20,0.8)] animate-pulse">TOP 1%</span>
-              <span className="text-white/80 text-xs font-mono tracking-widest uppercase">Software Engineer & Problem Solver</span>
+              <span className="px-2.5 py-0.5 bg-red-600 text-white font-black text-xs rounded tracking-widest shadow-[0_0_20px_rgba(229,9,20,0.8)] animate-pulse">AVAILABLE</span>
+              <span className="text-white/80 text-xs font-mono tracking-widest uppercase">Freelance &amp; Full-Time</span>
             </div>
 
             <h1 className="hero-anim-item text-5xl md:text-7xl font-black tracking-tighter text-white leading-[0.95] drop-shadow-[0_15px_30px_rgba(0,0,0,0.9)]">
-              SUSHMITA <br />
+              KUNAL SENGAR <br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-500 via-rose-600 to-red-700 drop-shadow-[0_0_35px_rgba(220,38,38,0.5)]">
-                DEV.ENGINE
+                FULL STACK DEVELOPER
               </span>
             </h1>
 
             <div className="hero-anim-item flex items-center gap-3 text-xs font-mono text-red-400 font-bold">
-              <span className="px-2 py-0.5 bg-red-500/10 border border-red-500/30 rounded text-red-500">99.9% Uptime</span>
+              <span className="px-2 py-0.5 bg-red-500/10 border border-red-500/30 rounded text-red-500">AI ENGINEER</span>
               <span className="text-white/40">•</span>
-              <span>React • Node.js • PostgreSQL</span>
+              <span>LLM</span>
               <span className="text-white/40">•</span>
-              <span className="text-white/70">Docker & Cloud</span>
+              <span className="text-white/70">RAG</span>
             </div>
 
             <p className="hero-anim-item text-sm md:text-base text-white/80 font-light leading-relaxed max-w-md drop-shadow">
-              Architecting robust full-stack systems, building scalable multi-tenant SaaS platforms, and engineering cutting-edge AI integrations.
+              Engineering Digital Experiences. Building Intelligent Futures.
             </p>
+
+            <div className="hero-anim-item flex flex-col gap-1 text-xs font-mono text-white/60">
+              <div><span className="text-red-500 font-bold">LOCATION //</span> Kashipur, Uttarakhand, India</div>
+              <div><span className="text-red-500 font-bold">STATUS //</span> Available for Freelance &amp; Full-Time Opportunities</div>
+            </div>
 
             {/* Action Button Set */}
             <div className="hero-anim-item flex items-center gap-4 pt-2">
@@ -226,7 +232,7 @@ const Hero = () => {
                 <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
                   <path d="M8 5v14l11-7z" />
                 </svg>
-                View Projects
+                VIEW PROJECTS
               </a>
               <a
                 href="#contact"
@@ -237,7 +243,7 @@ const Hero = () => {
                   <line x1="12" y1="8" x2="12" y2="12" />
                   <line x1="12" y1="16" x2="12.01" y2="16" />
                 </svg>
-                Contact Me
+                CONTACT ME
               </a>
             </div>
           </div>
@@ -266,8 +272,8 @@ const Hero = () => {
                 </div>
 
                 <img
-                  src={pictureImg}
-                  alt="Developer Portrait"
+                  src={portraitImg}
+                  alt="Kunal Sengar — Full Stack Developer"
                   className="w-full h-[330px] md:h-[390px] object-cover rounded-xl filter contrast-125 brightness-105 group-hover:scale-[1.02] transition-transform duration-500"
                 />
               </div>
@@ -277,9 +283,9 @@ const Hero = () => {
           {/* Right Side: Technical Specs & Stack */}
           <div className="hero-anim-item lg:col-span-3 flex flex-col items-start lg:items-end space-y-4 text-left lg:text-right">
             <div className="p-5 bg-black/80 backdrop-blur-2xl border border-white/15 rounded-xl shadow-2xl max-w-xs">
-              <h3 className="text-xs font-mono uppercase tracking-widest text-red-500 font-bold mb-2">Core Stack & Awards</h3>
+              <h3 className="text-xs font-mono uppercase tracking-widest text-red-500 font-bold mb-2">Core Focus</h3>
               <p className="text-xs text-white/80 leading-relaxed font-light">
-                Flipkart GRiD 7.0 Semi-Finalist, AlgoUniversity Tech Fellow, GitHub Foundations Certified.
+                Full Stack Web Applications, LLM Integrations, RAG Pipelines &amp; High-Performance Systems.
               </p>
             </div>
           </div>
@@ -307,7 +313,7 @@ const Hero = () => {
       {/* --- NETFLIX-THEMED DEVELOPER NAVBAR --- */}
       <header className="absolute top-0 left-0 z-50 w-full max-w-7xl mx-auto px-6 md:px-12 py-6 flex items-center justify-between pointer-events-auto">
         <div className="text-2xl font-black text-red-600 tracking-tighter flex items-center gap-2 drop-shadow-[0_2px_15px_rgba(229,9,20,0.9)]">
-          SUSHMITA<span className="w-1.5 h-1.5 rounded-full bg-white inline-block"></span>
+          KS<span className="w-1.5 h-1.5 rounded-full bg-white inline-block"></span>
         </div>
         <nav className="hidden md:flex items-center gap-8 text-xs font-mono uppercase tracking-widest text-white/80">
           <a href="#home" className="hover:text-red-500 transition-colors">Home</a>
@@ -318,7 +324,7 @@ const Hero = () => {
           <a href="#contact" className="hover:text-red-500 transition-colors">Contact</a>
         </nav>
         <a
-          href="#hire"
+          href="#contact"
           className="px-5 py-2 rounded bg-red-600 hover:bg-red-700 text-white font-bold text-xs uppercase tracking-widest transition-all duration-300 shadow-[0_0_20px_rgba(229,9,20,0.6)] hover:scale-105 active:scale-95"
         >
           Hire Me

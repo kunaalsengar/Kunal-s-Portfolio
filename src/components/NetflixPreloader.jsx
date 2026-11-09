@@ -47,7 +47,7 @@ const MinimalPreloader = ({ onComplete }) => {
           className="text-2xl md:text-3xl font-black uppercase tracking-[0.3em] text-white"
           style={{ fontFamily: "'Bebas Neue', 'Impact', sans-serif" }}
         >
-          SUSHMITA
+          KUNAL SENGAR
         </h1>
       </div>
     </div>
