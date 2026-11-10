@@ -1,0 +1,284 @@
+/* Netflix-Style 4-Profile "Who's watching?" Selector */
+
+.ps-root {
+  position: relative;
+  z-index: 12;
+  flex: 1;
+  min-height: 0;
+  width: 100%;
+  height: 100%;
+  padding: 16px 24px 36px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Helvetica Neue', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+  text-align: center;
+  outline: none;
+  overflow: hidden;
+}
+
+/* Small, Subtle Top-Left Brand Mark: KS */
+.ps-brand {
+  position: fixed;
+  top: max(22px, env(safe-area-inset-top));
+  left: max(26px, env(safe-area-inset-left));
+  z-index: 32;
+  pointer-events: none;
+  font-family: 'Bebas Neue', 'Impact', sans-serif;
+  font-size: clamp(1.5rem, 2.2vw, 1.9rem);
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: 0.12em;
+  color: #e50914;
+  opacity: 0.92;
+  user-select: none;
+}
+
+.ps-content {
+  width: 100%;
+  max-width: 960px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(24px, 3.8dvh, 42px);
+}
+
+.ps-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ps-heading {
+  margin: 0;
+  font-size: clamp(2rem, 3.6vw, 3.35rem);
+  font-weight: 400;
+  line-height: 1.12;
+  letter-spacing: 0.01em;
+  color: #ffffff;
+}
+
+/* Four Evenly Spaced Square Portraits Centered on Desktop & Tablet */
+.ps-grid {
+  width: 100%;
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: flex-start;
+  justify-content: center;
+  gap: clamp(18px, 2.4vw, 34px);
+}
+
+/* Borderless Minimal Profile Button */
+.ps-card {
+  position: relative;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: clamp(10px, 1.4dvh, 14px);
+  min-width: 44px;
+  min-height: 44px;
+  padding: 4px;
+  border: none;
+  border-radius: 8px;
+  background: transparent;
+  color: #8c8c8c;
+  text-align: center;
+  cursor: pointer;
+  appearance: none;
+  -webkit-appearance: none;
+  outline: none;
+  transition: opacity 0.24s ease;
+  will-change: transform, opacity;
+}
+
+.ps-card.is-dimmed {
+  opacity: 0.28;
+  pointer-events: none;
+}
+
+.ps-root.is-selecting .ps-card {
+  pointer-events: none;
+}
+
+/* Square Portrait Frame */
+.ps-avatar-box {
+  position: relative;
+  display: block;
+  width: clamp(118px, 11.4vw, 168px);
+  aspect-ratio: 1 / 1;
+  border-radius: 6px;
+  overflow: hidden;
+  background-color: #0b0b0c;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.55);
+  transition: transform 0.24s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.ps-avatar-img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  image-orientation: from-image;
+  object-fit: cover;
+  object-position: 50% 35%;
+  filter: brightness(0.88);
+  transition: filter 0.24s ease;
+}
+
+.ps-avatar-ring {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  border: 3px solid transparent;
+  pointer-events: none;
+  transition: border-color 0.22s ease;
+}
+
+.ps-label {
+  display: block;
+  font-size: clamp(0.92rem, 1.2vw, 1.14rem);
+  font-weight: 400;
+  line-height: 1.3;
+  letter-spacing: 0.015em;
+  color: #8c8c8c;
+  transition: color 0.22s ease;
+}
+
+/* Hover, Focus & Selection States */
+.ps-card:hover .ps-avatar-box,
+.ps-card:focus-visible .ps-avatar-box,
+.ps-card.is-selected .ps-avatar-box {
+  transform: scale(1.05);
+}
+
+.ps-card:hover .ps-avatar-img,
+.ps-card:focus-visible .ps-avatar-img,
+.ps-card.is-selected .ps-avatar-img {
+  filter: brightness(1.06);
+}
+
+.ps-card:hover .ps-avatar-ring,
+.ps-card:focus-visible .ps-avatar-ring,
+.ps-card.is-selected .ps-avatar-ring {
+  border-color: rgba(255, 255, 255, 0.94);
+}
+
+.ps-card:hover .ps-label,
+.ps-card:focus-visible .ps-label,
+.ps-card.is-selected .ps-label {
+  color: #ffffff;
+}
+
+.ps-card:focus-visible .ps-avatar-box {
+  box-shadow:
+    0 14px 32px rgba(0, 0, 0, 0.65),
+    0 0 0 2px #141414,
+    0 0 0 4px rgba(255, 255, 255, 0.72);
+}
+
+.ps-card:active .ps-avatar-box {
+  transform: scale(1.01);
+}
+
+/* Tablet Layout (640px - 900px): Keeps 4 Horizontal Squares Balanced */
+@media (max-width: 900px) and (min-width: 640px) {
+  .ps-grid {
+    gap: 18px;
+  }
+
+  .ps-avatar-box {
+    width: clamp(112px, 15.8vw, 138px);
+  }
+}
+
+/* Mobile Layout (< 640px): Symmetrical 2x2 Grid with Clean Labels & Safe Touch Targets */
+@media (max-width: 639px) {
+  .ps-root {
+    padding: 12px 14px 28px;
+  }
+
+  .ps-brand {
+    top: max(22px, env(safe-area-inset-top));
+    left: max(18px, env(safe-area-inset-left));
+    font-size: 1.42rem;
+  }
+
+  .ps-content {
+    gap: 24px;
+  }
+
+  .ps-heading {
+    font-size: clamp(1.72rem, 7.6vw, 2.2rem);
+  }
+
+  .ps-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    justify-items: center;
+    max-width: 316px;
+    gap: 20px 18px;
+  }
+
+  .ps-card {
+    width: 100%;
+  }
+
+  .ps-avatar-box {
+    width: clamp(104px, 28vw, 128px);
+  }
+
+  .ps-label {
+    font-size: 0.9rem;
+  }
+}
+
+/* Ultra-compact Viewports such as 320x568 */
+@media (max-width: 360px), (max-height: 600px) and (max-width: 639px) {
+  .ps-root {
+    padding: 8px 10px 20px;
+  }
+
+  .ps-brand {
+    top: max(19px, env(safe-area-inset-top));
+    left: max(16px, env(safe-area-inset-left));
+    font-size: 1.32rem;
+  }
+
+  .ps-content {
+    gap: 18px;
+  }
+
+  .ps-heading {
+    font-size: 1.56rem;
+  }
+
+  .ps-grid {
+    max-width: 268px;
+    gap: 16px 14px;
+  }
+
+  .ps-avatar-box {
+    width: 92px;
+  }
+
+  .ps-card {
+    gap: 8px;
+    padding: 2px;
+  }
+
+  .ps-label {
+    font-size: 0.84rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ps-card,
+  .ps-avatar-box,
+  .ps-avatar-img,
+  .ps-avatar-ring,
+  .ps-label {
+    transition: none;
+  }
+}

@@ -6,40 +6,40 @@ gsap.registerPlugin(ScrollTrigger);
 
 const skillCategories = [
   { 
-    title: 'Frontend Engineering', 
-    desc: 'Crafting responsive and interactive user interfaces using React, JavaScript, HTML5, CSS3, and Tailwind CSS.', 
+    title: 'Frontend Development', 
+    desc: 'Building modern, responsive websites and interactive user interfaces across desktop and mobile viewports.', 
     tag: 'UI / INTERACTION',
-    skills: ['React', 'JavaScript', 'Tailwind CSS', 'HTML5', 'CSS3'] 
+    skills: ['React.js', 'HTML5', 'CSS3', 'JavaScript (ES6+)', 'Tailwind CSS', 'Bootstrap', 'Responsive Web Design'] 
   },
   { 
-    title: 'Backend & Databases', 
-    desc: 'Building secure REST APIs, authentication flows, server-side applications, and high-performance database architectures.', 
-    tag: 'ARCHITECTURE',
-    skills: ['Node.js', 'Express', 'PostgreSQL', 'MongoDB', 'DQL'] 
+    title: 'Backend Development', 
+    desc: 'Designing structured server-side architectures, RESTful API endpoints, and secure JWT authentication flows.', 
+    tag: 'SERVER & APIS',
+    skills: ['Node.js', 'Express.js', 'REST API Design', 'JWT Authentication'] 
   },
   { 
-    title: 'AI & Machine Learning', 
-    desc: 'Developing intelligent applications leveraging NLP, generative AI workflows, computer vision, and LLM systems.', 
-    tag: 'INTELLIGENCE',
-    skills: ['NLP', 'Generative AI', 'Computer Vision', 'LLMs', 'AWS AI'] 
+    title: 'CMS & E-commerce', 
+    desc: 'Developing custom storefronts, e-commerce workflows, and theme customizations on WordPress and Shopify.', 
+    tag: 'PLATFORMS & STORES',
+    skills: ['WordPress', 'Elementor', 'WooCommerce', 'Shopify', 'Theme Customization'] 
   },
   { 
-    title: 'Cloud & DevOps', 
-    desc: 'Deploying and scaling production-grade applications using Docker containers, GitHub Actions, and CI/CD pipelines.', 
-    tag: 'INFRASTRUCTURE',
-    skills: ['Docker', 'GitHub', 'CI/CD Pipelines', 'Render', 'Docker Hub'] 
+    title: 'Database Engineering', 
+    desc: 'Structuring relational and document data models with CRUD operations, schema design, and indexing.', 
+    tag: 'DATA & STORAGE',
+    skills: ['MongoDB', 'Mongoose', 'MySQL', 'CRUD Operations', 'Schema Design', 'Indexing'] 
   },
   { 
-    title: 'Algorithmic Problem Solving', 
-    desc: 'Optimizing data structures and solving complex algorithmic challenges across competitive programming platforms.', 
-    tag: 'COMPETITIVE',
-    skills: ['Data Structures', 'Algorithms', 'LeetCode', 'CodeChef', 'GFG'] 
+    title: 'Mobile Development', 
+    desc: 'Creating cross-platform mobile applications and interfaces with Android Studio, Flutter, and Dart.', 
+    tag: 'MOBILE APPS',
+    skills: ['Android Studio', 'Flutter', 'Dart'] 
   },
   { 
-    title: 'Tools & Ecosystem', 
-    desc: 'Equipped with industry-grade instruments for version control, productivity extensions, and workflow management.', 
-    tag: 'PRODUCTIVITY',
-    skills: ['Git', 'Chrome APIs', 'Adobe Express', 'Google Cloud', 'VS Code'] 
+    title: 'AI & Emerging Tech', 
+    desc: 'Building intelligent applications with LLM integration, Retrieval-Augmented Generation (RAG), and AI agents.', 
+    tag: 'LLM · RAG · AGENTS',
+    skills: ['LLM Integration', 'RAG', 'LangChain', 'LangGraph', 'Vector Databases', 'AI Agents', 'Prompt Engineering', 'OpenAI API'] 
   },
 ];
 

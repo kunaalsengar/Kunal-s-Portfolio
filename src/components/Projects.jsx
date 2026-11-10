@@ -4,70 +4,80 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 gsap.registerPlugin(ScrollTrigger);
 
-// Authentic Project Data based on your engineering portfolio
+// Verified Portfolio Projects (8 slots preserving 3x3 folder dispersion geometry)
 const projectsData = [
   {
-    title: "Notice Hub",
-    category: "Full-Stack Architecture",
-    description: "Consolidates university announcements and streamlines real-time student communication with high uptime.",
-    tags: ["React", "Node.js", "Express", "MongoDB"],
-    match: "99%",
+    title: "GamingPCWorld",
+    category: "LIVE WEBSITE",
+    description: "Contribution: Complete Website Development",
+    contribution: "Complete Website Development",
+    tags: ["Website Development"],
+    status: "LIVE",
+    liveUrl: "https://www.gamingpcworld.com/",
     episode: "S01 E01"
   },
   {
-    title: "Multi-Tenant SaaS Platform",
-    category: "Cloud & Distributed Systems",
-    description: "Containerized enterprise SaaS featuring strict database isolation and granular role-based access control.",
-    tags: ["Docker", "PostgreSQL", "Node.js", "Express"],
-    match: "98%",
+    title: "TruPahadi",
+    category: "LIVE WEBSITE",
+    description: "Contribution: Complete Website Development",
+    contribution: "Complete Website Development",
+    tags: ["Website Development"],
+    status: "LIVE",
+    liveUrl: "https://trupahadi.com/",
     episode: "S01 E02"
   },
   {
-    title: "Payment Gateway System",
-    category: "Fintech Architecture",
-    description: "Simulates complex transaction state management, webhook verification, and multi-method processing.",
-    tags: ["JavaScript", "PostgreSQL", "REST APIs", "Docker"],
-    match: "97%",
+    title: "Sahota Hospital",
+    category: "LIVE WEBSITE",
+    description: "Contribution: Complete Website Development",
+    contribution: "Complete Website Development",
+    tags: ["Website Development"],
+    status: "LIVE",
+    liveUrl: "https://sahotahospitalksp.com/",
     episode: "S01 E03"
   },
   {
-    title: "Productivity Suite Extension",
-    category: "Client-Side Engineering",
-    description: "Custom Chrome extension built with Chrome APIs and advanced JavaScript for task automation and management.",
-    tags: ["JavaScript", "Chrome APIs", "Tailwind CSS", "HTML5"],
-    match: "99%",
+    title: "JJM Hospital Kashipur",
+    category: "LIVE WEBSITE",
+    description: "Contribution: Complete Website Development",
+    contribution: "Complete Website Development",
+    tags: ["Website Development"],
+    status: "LIVE",
+    liveUrl: "https://jjmhospitalkashipur.com/",
     episode: "S01 E04"
   },
   {
-    title: "AI & ML Diagnostic Engine",
-    category: "Artificial Intelligence",
-    description: "Intelligent data processing pipeline leveraging machine learning models and NLP workflows.",
-    tags: ["Python", "Machine Learning", "NLP", "AWS"],
-    match: "96%",
+    title: "WebMate",
+    category: "PERSONAL AI PROJECT",
+    phase: "PHASE 0 FOUNDATION",
+    description: "Interactive AI-Powered Browser Companion.",
+    tags: ["WXT", "React 18", "TypeScript", "Tailwind CSS", "Zustand", "GSAP", "Node.js", "Fastify 5.x", "pnpm"],
+    status: "IN DEVELOPMENT",
+    githubUrl: "https://github.com/kunaalsengar/WebMate",
     episode: "S01 E05"
   },
   {
-    title: "Algorithmic Problem Solver",
-    category: "Competitive Programming",
-    description: "Optimized data structure solutions across LeetCode, CodeChef, and GeeksforGeeks platforms.",
-    tags: ["Data Structures", "Algorithms", "C++", "JavaScript"],
-    match: "99%",
+    title: "Project 06 — Pending",
+    category: "PERSONAL AI PROJECT",
+    description: "Project details coming soon.",
+    tags: [],
+    status: "PENDING",
     episode: "S01 E06"
   },
   {
-    title: "Portfolio Cinematics v2.6",
-    category: "UI/UX & Animation",
-    description: "Award-winning dark studio interactive portfolio featuring GSAP physics and responsive layouts.",
-    tags: ["React", "GSAP", "Tailwind CSS", "Framer Motion"],
-    match: "100%",
+    title: "Project 07 — Pending",
+    category: "PERSONAL AI PROJECT",
+    description: "Project details coming soon.",
+    tags: [],
+    status: "PENDING",
     episode: "S01 E07"
   },
   {
-    title: "Cloud CI/CD Pipeline",
-    category: "DevOps & Infrastructure",
-    description: "Automated deployment workflows using GitHub Actions and containerized Docker environments.",
-    tags: ["Docker", "GitHub Actions", "CI/CD", "Render"],
-    match: "98%",
+    title: "Project 08 — Pending",
+    category: "PERSONAL AI PROJECT",
+    description: "Project details coming soon.",
+    tags: [],
+    status: "PENDING",
     episode: "S01 E08"
   }
 ];
@@ -281,43 +291,94 @@ const Projects = () => {
               className="hidden md:block absolute w-[80vw] md:w-[33vw] max-w-[380px] aspect-[16/10] will-change-transform"
               style={{ zIndex: 10 + i }}
             >
-              <div className="w-full h-full rounded-[24px] overflow-hidden border border-white/15 bg-[#141414]/95 backdrop-blur-2xl shadow-[0_25px_50px_rgba(0,0,0,0.9)] transition-all duration-500 group hover:scale-[1.04] hover:border-red-600 hover:shadow-[0_35px_80px_rgba(229,9,20,0.35)] hover:-translate-y-2 cursor-pointer relative z-10 p-7 flex flex-col justify-between">
+              <div className="w-full h-full rounded-[24px] overflow-hidden border border-white/15 bg-[#141414]/95 backdrop-blur-2xl shadow-[0_25px_50px_rgba(0,0,0,0.9)] transition-all duration-500 group hover:scale-[1.04] hover:border-red-600 hover:shadow-[0_35px_80px_rgba(229,9,20,0.35)] hover:-translate-y-2 relative z-10 p-2.5 lg:p-4 xl:p-5 flex flex-col justify-between">
                 
                 {/* Top Card Header */}
-                <div className="flex items-center justify-between">
-                  <span className="text-[10px] font-mono font-bold tracking-widest uppercase text-red-500 bg-red-600/10 px-2.5 py-1 rounded border border-red-600/20">
+                <div className="flex items-center justify-between gap-2">
+                  <span className="text-[8.5px] lg:text-[10px] font-mono font-bold tracking-widest uppercase text-red-500 bg-red-600/10 px-2 lg:px-2.5 py-0.5 lg:py-1 rounded border border-red-600/20">
                     {project.episode}
                   </span>
-                  <div className="flex items-center gap-2">
-                    <span className="text-xs font-mono text-red-400 font-bold">{project.match} Match</span>
-                    <span className="text-[10px] font-mono border border-white/30 px-1 text-white/70">HD</span>
-                  </div>
+                  <span
+                    className={`text-[8.5px] lg:text-[10px] font-mono font-bold tracking-wider uppercase px-2 py-0.5 rounded border ${
+                      project.status === 'LIVE'
+                        ? 'text-emerald-400 bg-emerald-500/10 border-emerald-500/30'
+                        : project.status === 'IN DEVELOPMENT'
+                          ? 'text-amber-400 bg-amber-500/10 border-amber-500/30'
+                          : 'text-white/50 bg-white/5 border-white/15'
+                    }`}
+                  >
+                    {project.status}
+                  </span>
                 </div>
 
                 {/* Middle Title & Description */}
-                <div className="space-y-2 my-auto">
-                  <div className="text-[11px] font-mono uppercase tracking-widest text-white/40">
-                    {project.category}
+                <div className="space-y-0.5 lg:space-y-1 my-auto">
+                  <div className="flex flex-wrap items-center justify-between gap-x-2 gap-y-0.5">
+                    <span className="text-[8px] lg:text-[9px] xl:text-[10px] font-mono uppercase tracking-wider text-white/40">
+                      {project.category}
+                    </span>
+                    {project.phase && (
+                      <span className="text-[7.5px] lg:text-[8.5px] xl:text-[9.5px] font-mono uppercase tracking-wider text-amber-400/90">
+                        {project.phase}
+                      </span>
+                    )}
                   </div>
-                  <h3 className="text-2xl font-black text-white tracking-tight group-hover:text-red-500 transition-colors duration-300">
+                  <h3 className="text-sm lg:text-lg xl:text-2xl font-black text-white tracking-tight group-hover:text-red-500 transition-colors duration-300 leading-tight truncate">
                     {project.title}
                   </h3>
-                  <p className="text-xs text-white/70 font-light leading-relaxed line-clamp-2">
+                  <p className="text-[9.5px] lg:text-[11px] xl:text-xs text-white/70 font-light leading-snug line-clamp-2">
                     {project.description}
                   </p>
                 </div>
 
-                {/* Bottom Tech Tags */}
-                <div className="flex flex-wrap gap-1.5 pt-3 border-t border-white/10">
-                  {project.tags.map((tag, tIdx) => (
-                    <span key={tIdx} className="text-[10px] font-mono text-white/70 bg-white/5 px-2 py-0.5 rounded group-hover:border-red-600/30 transition-colors">
-                      {tag}
-                    </span>
-                  ))}
+                {/* Bottom Tech Tags & Action Link */}
+                <div className="pt-1 lg:pt-2 border-t border-white/10 space-y-1 lg:space-y-1.5">
+                  {project.tags.length > 0 ? (
+                    <div className="flex flex-wrap gap-0.5 lg:gap-1">
+                      {project.tags.map((tag, tIdx) => (
+                        <span key={tIdx} className="text-[7.5px] lg:text-[8.5px] xl:text-[9.5px] leading-none font-mono text-white/75 bg-white/5 px-1 lg:px-1.5 py-[3px] lg:py-1 rounded border border-white/5 group-hover:border-red-600/30 transition-colors">
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
+                  ) : (
+                    <div className="text-[8.5px] lg:text-[10px] font-mono uppercase tracking-widest text-white/30">
+                      Slot Reserved
+                    </div>
+                  )}
+
+                  {(project.liveUrl || project.githubUrl) && (
+                    <div className="flex items-center justify-between pt-0.5 pr-4">
+                      {project.liveUrl && (
+                        <a
+                          href={project.liveUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          onClick={(e) => e.stopPropagation()}
+                          className="inline-flex items-center gap-1 text-[8.5px] lg:text-[10px] font-mono font-bold uppercase tracking-wider text-white bg-red-600/90 hover:bg-red-600 px-2 lg:px-2.5 py-[3px] lg:py-1 rounded transition-colors cursor-pointer relative z-30 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-500"
+                        >
+                          VISIT WEBSITE
+                          <span aria-hidden="true">&#8599;</span>
+                        </a>
+                      )}
+                      {project.githubUrl && (
+                        <a
+                          href={project.githubUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          onClick={(e) => e.stopPropagation()}
+                          className="inline-flex items-center gap-1 text-[8.5px] lg:text-[10px] font-mono font-bold uppercase tracking-wider text-white bg-white/10 hover:bg-red-600 border border-white/20 hover:border-red-600 px-2 lg:px-2.5 py-[3px] lg:py-1 rounded transition-colors cursor-pointer relative z-30 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-500"
+                        >
+                          GITHUB REPOSITORY
+                          <span aria-hidden="true">&#8599;</span>
+                        </a>
+                      )}
+                    </div>
+                  )}
                 </div>
 
                 {/* Red Glowing Corner Accent */}
-                <div className="absolute bottom-4 right-4 w-2 h-2 rounded-full bg-red-600 group-hover:shadow-[0_0_15px_#E50914] transition-all" />
+                <div className="absolute bottom-4 right-4 w-2 h-2 rounded-full bg-red-600 group-hover:shadow-[0_0_15px_#E50914] transition-all pointer-events-none" />
               </div>
             </div>
           ))}
@@ -351,23 +412,78 @@ const Projects = () => {
             ref={el => mobileCardsRef.current[i] = el}
             className="shrink-0 w-[78vw] aspect-[16/11] snap-center will-change-transform relative z-10"
           >
-            <div className="w-full h-full rounded-[24px] overflow-hidden border border-white/15 bg-[#141414] p-6 flex flex-col justify-between shadow-[0_20px_40px_rgba(0,0,0,0.9)]">
-              <div className="flex items-center justify-between">
-                <span className="text-[10px] font-mono font-bold tracking-widest text-red-500 bg-red-600/10 px-2 py-0.5 rounded">
+            <div className="w-full h-full rounded-[24px] overflow-hidden border border-white/15 bg-[#141414] p-3 sm:p-5 flex flex-col justify-between shadow-[0_20px_40px_rgba(0,0,0,0.9)]">
+              <div className="flex items-center justify-between gap-2">
+                <span className="text-[8.5px] sm:text-[9px] font-mono font-bold tracking-widest text-red-500 bg-red-600/10 px-2 py-0.5 rounded border border-red-600/20">
                   {project.episode}
                 </span>
-                <span className="text-xs font-mono text-red-400 font-bold">{project.match} Match</span>
+                <span
+                  className={`text-[8.5px] sm:text-[9px] font-mono font-bold tracking-wider uppercase px-2 py-0.5 rounded border ${
+                    project.status === 'LIVE'
+                      ? 'text-emerald-400 bg-emerald-500/10 border-emerald-500/30'
+                      : project.status === 'IN DEVELOPMENT'
+                        ? 'text-amber-400 bg-amber-500/10 border-amber-500/30'
+                        : 'text-white/50 bg-white/5 border-white/15'
+                  }`}
+                >
+                  {project.status}
+                </span>
               </div>
-              <div className="space-y-2">
-                <h3 className="text-xl font-black text-white">{project.title}</h3>
-                <p className="text-xs text-white/70 font-light line-clamp-2">{project.description}</p>
-              </div>
-              <div className="flex flex-wrap gap-1 pt-2 border-t border-white/10">
-                {project.tags.slice(0, 3).map((tag, tIdx) => (
-                  <span key={tIdx} className="text-[10px] font-mono text-white/60 bg-white/5 px-2 py-0.5 rounded">
-                    {tag}
+              <div className="space-y-0.5 sm:space-y-1 my-auto">
+                <div className="flex flex-wrap items-center justify-between gap-x-2 gap-y-0.5">
+                  <span className="text-[8px] sm:text-[9px] font-mono uppercase tracking-wider text-white/40">
+                    {project.category}
                   </span>
-                ))}
+                  {project.phase && (
+                    <span className="text-[7px] sm:text-[8.5px] font-mono uppercase tracking-wider text-amber-400/90">
+                      {project.phase}
+                    </span>
+                  )}
+                </div>
+                <h3 className="text-[14px] sm:text-xl font-black text-white leading-tight truncate">{project.title}</h3>
+                <p className="text-[10px] sm:text-xs text-white/70 font-light leading-snug line-clamp-2">{project.description}</p>
+              </div>
+              <div className="pt-1 sm:pt-1.5 border-t border-white/10 space-y-1 sm:space-y-1.5">
+                {project.tags.length > 0 ? (
+                  <div className="flex flex-wrap gap-[3px] sm:gap-1">
+                    {project.tags.map((tag, tIdx) => (
+                      <span key={tIdx} className="text-[7px] sm:text-[9px] leading-none font-mono text-white/75 bg-white/5 px-1 sm:px-1.5 py-[2.5px] sm:py-1 rounded border border-white/5">
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                ) : (
+                  <div className="text-[8.5px] sm:text-[9px] font-mono uppercase tracking-widest text-white/30">
+                    Slot Reserved
+                  </div>
+                )}
+
+                {(project.liveUrl || project.githubUrl) && (
+                  <div>
+                    {project.liveUrl && (
+                      <a
+                        href={project.liveUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-1 text-[8px] sm:text-[10px] font-mono font-bold uppercase tracking-wider text-white bg-red-600/90 hover:bg-red-600 px-2 sm:px-2.5 py-[3px] sm:py-1 rounded transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-500"
+                      >
+                        VISIT WEBSITE
+                        <span aria-hidden="true">&#8599;</span>
+                      </a>
+                    )}
+                    {project.githubUrl && (
+                      <a
+                        href={project.githubUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-1 text-[8px] sm:text-[10px] font-mono font-bold uppercase tracking-wider text-white bg-white/10 hover:bg-red-600 border border-white/20 hover:border-red-600 px-2 sm:px-2.5 py-[3px] sm:py-1 rounded transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-500"
+                      >
+                        GITHUB REPOSITORY
+                        <span aria-hidden="true">&#8599;</span>
+                      </a>
+                    )}
+                  </div>
+                )}
               </div>
             </div>
           </div>

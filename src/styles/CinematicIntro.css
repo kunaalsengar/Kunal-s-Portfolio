@@ -1,0 +1,476 @@
+/* Scoped Netflix-Inspired Cinematic Intro Styles (Full-Viewport Darkness & Crimson Light Streaks) */
+
+.ci-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  background-color: #000000;
+  color: #ffffff;
+  overflow: hidden;
+  user-select: none;
+  cursor: default;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: max(14px, env(safe-area-inset-top)) max(18px, env(safe-area-inset-right))
+    max(16px, env(safe-area-inset-bottom)) max(18px, env(safe-area-inset-left));
+}
+
+/* Layered Cinema Atmosphere, Crimson Light Streaks & Theater Vignette */
+.ci-atmosphere {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.ci-theater-glow {
+  position: absolute;
+  inset: -10%;
+  background:
+    radial-gradient(
+      ellipse 60% 44% at 50% 48%,
+      rgba(229, 9, 20, 0.24) 0%,
+      rgba(128, 7, 15, 0.12) 42%,
+      transparent 74%
+    ),
+    radial-gradient(
+      ellipse 72% 16% at 50% 88%,
+      rgba(229, 9, 20, 0.1) 0%,
+      transparent 70%
+    );
+  will-change: transform, opacity;
+}
+
+/* Volumetric Crimson Light Ribbons Moving Through Darkness */
+.ci-streaks-stage {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  will-change: opacity;
+}
+
+.ci-streak {
+  position: absolute;
+  top: -14%;
+  bottom: -14%;
+  left: 50%;
+  border-radius: 9999px;
+  transform-origin: center center;
+  mix-blend-mode: screen;
+  will-change: transform, opacity;
+}
+
+.ci-streak--crimson {
+  background: linear-gradient(
+    180deg,
+    transparent 0%,
+    rgba(190, 8, 18, 0.45) 22%,
+    rgba(229, 9, 20, 0.92) 50%,
+    rgba(190, 8, 18, 0.45) 78%,
+    transparent 100%
+  );
+  box-shadow: 0 0 28px rgba(229, 9, 20, 0.45);
+}
+
+.ci-streak--bright {
+  background: linear-gradient(
+    180deg,
+    transparent 0%,
+    rgba(229, 9, 20, 0.55) 20%,
+    rgba(255, 76, 84, 0.96) 50%,
+    rgba(229, 9, 20, 0.55) 80%,
+    transparent 100%
+  );
+  box-shadow: 0 0 22px rgba(255, 65, 75, 0.55);
+}
+
+.ci-streak--ember {
+  background: linear-gradient(
+    180deg,
+    transparent 0%,
+    rgba(140, 6, 14, 0.35) 24%,
+    rgba(210, 14, 24, 0.72) 50%,
+    rgba(140, 6, 14, 0.35) 76%,
+    transparent 100%
+  );
+}
+
+.ci-vignette {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle at 50% 48%,
+    transparent 34%,
+    rgba(0, 0, 0, 0.62) 74%,
+    rgba(0, 0, 0, 0.94) 100%
+  );
+}
+
+/* Top Bar Holding Subtle Brand Cue & Accessible Skip Intro Button */
+.ci-topbar {
+  position: relative;
+  z-index: 30;
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  min-height: 44px;
+}
+
+.ci-brand-cue {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 11px;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  color: rgba(255, 255, 255, 0.48);
+}
+
+.ci-brand-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 9999px;
+  background-color: #e50914;
+  box-shadow: 0 0 10px rgba(229, 9, 20, 0.8);
+  flex-shrink: 0;
+}
+
+.ci-skip-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 44px;
+  padding: 0 16px;
+  border-radius: 9999px;
+  background: rgba(16, 16, 18, 0.86);
+  border: 1px solid rgba(255, 255, 255, 0.24);
+  color: #ffffff;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  flex-shrink: 0;
+  cursor: pointer;
+  transition: background-color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+}
+
+@media (max-width: 380px) {
+  .ci-brand-cue {
+    font-size: 9.5px;
+    letter-spacing: 0.12em;
+    gap: 6px;
+  }
+
+  .ci-skip-btn {
+    padding: 0 12px;
+    font-size: 10px;
+    letter-spacing: 0.14em;
+  }
+}
+
+.ci-skip-btn:hover {
+  background: rgba(229, 9, 20, 0.22);
+  border-color: rgba(229, 9, 20, 0.88);
+}
+
+.ci-skip-btn:active {
+  transform: scale(0.97);
+}
+
+.ci-skip-btn:focus-visible {
+  outline: 2px solid #e50914;
+  outline-offset: 3px;
+}
+
+.ci-skip-hint {
+  display: none;
+  padding: 2px 6px;
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.08);
+  color: rgba(255, 255, 255, 0.65);
+  font-size: 9px;
+  letter-spacing: 0.12em;
+}
+
+@media (min-width: 768px) {
+  .ci-skip-hint {
+    display: inline-block;
+  }
+}
+
+/* Main Full-Viewport Theater Stage */
+.ci-stage {
+  position: relative;
+  z-index: 15;
+  flex: 1;
+  width: 100%;
+  min-height: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  will-change: opacity;
+}
+
+.ci-hero-stage {
+  width: 100%;
+  max-width: 960px;
+  height: 100%;
+  padding: 8px 12px 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+/* Primary Cinematic Wordmark + Controlled Crimson Optical Sweep */
+.ci-name-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  will-change: transform, opacity;
+}
+
+.ci-name-title {
+  position: relative;
+  margin: 0;
+  display: inline-block;
+  font-family: 'Bebas Neue', 'Impact', sans-serif;
+  font-size: clamp(2.25rem, 4.9vw, 4.25rem);
+  font-weight: 400;
+  line-height: 0.96;
+  letter-spacing: 0.28em;
+  padding-left: 0.28em; /* compensates right tracking for dead-center visual balance */
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+  background-image: linear-gradient(
+    112deg,
+    #f5f5f5 0%,
+    #ffffff 39%,
+    #ffd2d5 44%,
+    #e50914 50%,
+    #ffb3b8 56%,
+    #ffffff 61%,
+    #f5f5f5 100%
+  );
+  background-size: 300% 100%;
+  background-position: 100% 0;
+  text-transform: uppercase;
+  white-space: nowrap;
+  filter: drop-shadow(0 10px 26px rgba(0, 0, 0, 0.92))
+    drop-shadow(0 0 12px rgba(229, 9, 20, 0.16));
+}
+
+.ci-name-rule {
+  width: clamp(54px, 7.5vw, 88px);
+  height: 1px;
+  border-radius: 9999px;
+  background: linear-gradient(90deg, transparent 0%, rgba(229, 9, 20, 0.9) 50%, transparent 100%);
+  box-shadow: 0 0 10px rgba(229, 9, 20, 0.35);
+  transform-origin: center center;
+  will-change: transform, opacity;
+}
+
+/* Official 3:4 Portrait Blended Naturally Into Crimson Studio Darkness */
+.ci-portrait-stage {
+  margin-top: clamp(12px, 2.2dvh, 22px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: clamp(10px, 1.8dvh, 16px);
+}
+
+.ci-portrait-frame {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ci-portrait-halo {
+  position: absolute;
+  inset: -26%;
+  border-radius: 9999px;
+  background: radial-gradient(
+    circle at 50% 44%,
+    rgba(229, 9, 20, 0.28) 0%,
+    rgba(130, 8, 16, 0.12) 48%,
+    transparent 74%
+  );
+  filter: blur(32px);
+  pointer-events: none;
+  will-change: transform, opacity;
+}
+
+.ci-portrait-wrap {
+  position: relative;
+  height: clamp(232px, 41dvh, 366px);
+  aspect-ratio: 3 / 4;
+  background: transparent;
+  -webkit-mask-image: radial-gradient(
+    ellipse 48% 49% at 50% 45%,
+    #000000 50%,
+    rgba(0, 0, 0, 0.88) 64%,
+    rgba(0, 0, 0, 0.42) 82%,
+    transparent 98%
+  );
+  mask-image: radial-gradient(
+    ellipse 48% 49% at 50% 45%,
+    #000000 50%,
+    rgba(0, 0, 0, 0.88) 64%,
+    rgba(0, 0, 0, 0.42) 82%,
+    transparent 98%
+  );
+  will-change: transform, opacity;
+}
+
+.ci-portrait-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 26%;
+  display: block;
+  filter: contrast(1.03) saturate(0.98);
+}
+
+.ci-portrait-vignette {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(
+      ellipse 62% 62% at 50% 42%,
+      transparent 44%,
+      rgba(0, 0, 0, 0.45) 78%,
+      rgba(0, 0, 0, 0.92) 100%
+    ),
+    linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0.22) 0%,
+      transparent 22%,
+      transparent 56%,
+      rgba(0, 0, 0, 0.68) 84%,
+      rgba(0, 0, 0, 0.96) 100%
+    );
+}
+
+.ci-titles-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  will-change: transform, opacity;
+}
+
+.ci-role-title {
+  margin: 0;
+  font-size: clamp(0.84rem, 1.45vw, 1.08rem);
+  font-weight: 700;
+  letter-spacing: 0.3em;
+  padding-left: 0.3em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.94);
+}
+
+.ci-spec-title {
+  margin: 0;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: clamp(0.65rem, 1.05vw, 0.78rem);
+  font-weight: 600;
+  letter-spacing: 0.26em;
+  padding-left: 0.26em;
+  text-transform: uppercase;
+  color: rgba(239, 68, 68, 0.9);
+}
+
+/* Mobile Typography & Height Scaling */
+@media (max-width: 767px) {
+  .ci-name-title {
+    font-size: clamp(1.78rem, 8.6vw, 3rem);
+    letter-spacing: 0.2em;
+    padding-left: 0.2em;
+  }
+
+  .ci-portrait-wrap {
+    height: clamp(205px, 40dvh, 320px);
+  }
+
+  .ci-role-title {
+    font-size: clamp(0.76rem, 3.4vw, 0.95rem);
+    letter-spacing: 0.22em;
+    padding-left: 0.22em;
+  }
+
+  .ci-spec-title {
+    font-size: clamp(0.62rem, 2.7vw, 0.76rem);
+    letter-spacing: 0.2em;
+    padding-left: 0.2em;
+  }
+}
+
+/* Ultra-compact Viewports such as 320x568 */
+@media (max-width: 360px), (max-height: 600px) {
+  .ci-overlay {
+    padding-top: 10px;
+    padding-bottom: 12px;
+  }
+
+  .ci-hero-stage {
+    padding-bottom: 12px;
+  }
+
+  .ci-portrait-stage {
+    margin-top: 10px;
+    gap: 8px;
+  }
+
+  .ci-portrait-wrap {
+    height: clamp(182px, 36dvh, 236px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ci-skip-btn {
+    transition: none;
+  }
+}
+
+/* Netflix-style #141414 full-screen canvas transition while keeping opening stage intact */
+.ci-overlay--selector {
+  background-color: #141414;
+  transition: background-color 0.35s ease;
+}
+
+.ci-overlay--selector .ci-atmosphere {
+  opacity: 0;
+  transition: opacity 0.35s ease;
+}
+
+.ci-overlay--selector .ci-skip-btn {
+  background: transparent;
+  border-color: rgba(255, 255, 255, 0.14);
+  color: rgba(255, 255, 255, 0.45);
+}
+
+.ci-overlay--selector .ci-skip-btn:hover,
+.ci-overlay--selector .ci-skip-btn:focus-visible {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.55);
+  color: #ffffff;
+}

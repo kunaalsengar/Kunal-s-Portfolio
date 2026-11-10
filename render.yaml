@@ -1,0 +1,29 @@
+services:
+  - type: web
+    name: kunal-portfolio-contact-api
+    runtime: node
+    rootDir: server
+    plan: free
+    buildCommand: npm install
+    startCommand: npm start
+    healthCheckPath: /health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: FRONTEND_ORIGIN
+        sync: false
+      - key: SMTP_HOST
+        sync: false
+      - key: SMTP_PORT
+        sync: false
+      - key: SMTP_SECURE
+        sync: false
+      - key: SMTP_USER
+        sync: false
+      - key: SMTP_PASS
+        sync: false
+      - key: CONTACT_EMAIL_PRIMARY
+        value: kunaalsengar27@gmail.com
+      - key: CONTACT_EMAIL_SECONDARY
+        value: decodzyy@gmail.com
+
