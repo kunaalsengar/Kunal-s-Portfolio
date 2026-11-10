@@ -7,30 +7,30 @@ gsap.registerPlugin(ScrollTrigger);
 const expertiseData = [
   {
     number: "01",
-    title: "Frontend Development",
-    text: "Crafting responsive, high-fidelity user interfaces with React, modern JavaScript, Tailwind CSS, and buttery smooth GSAP motion interactions.",
-    tag: "UI / UX & INTERACTION",
+    title: "Full Stack Developer — VibeSoft",
+    text: "Working across client websites and web applications, contributing to frontend and backend development, e-commerce and CMS solutions, API integrations, database workflows, and mobile application development.",
+    tag: "7 JUNE 2026 — PRESENT",
     gradient: "from-[#1f0a0c] via-[#121212] to-[#0a0a0a]"
   },
   {
     number: "02",
-    title: "Backend Development",
-    text: "Architecting secure REST APIs, enterprise authentication pipelines, and scalable database schemas across PostgreSQL and MongoDB.",
-    tag: "API & ARCHITECTURE",
+    title: "Client Websites & Web Apps",
+    text: "Frontend and backend development for modern client websites and full-stack web applications built with React.js, HTML5, CSS3, JavaScript (ES6+), Tailwind CSS, Bootstrap, Node.js, and Express.js.",
+    tag: "FRONTEND & BACKEND",
     gradient: "from-[#1a0809] via-[#111111] to-[#090909]"
   },
   {
     number: "03",
-    title: "AI & Machine Learning",
-    text: "Integrating production-grade LLM workflows, predictive machine learning pipelines, and computer vision systems backed by AWS AI certification.",
-    tag: "INTELLIGENCE & ML",
+    title: "CMS, APIs & Database Workflows",
+    text: "Shopify and WordPress development alongside REST API development, third-party integrations, JWT authentication, and database workflows across MongoDB, Mongoose, and MySQL.",
+    tag: "SHOPIFY · WORDPRESS · APIS",
     gradient: "from-[#220a0d] via-[#131313] to-[#0a0a0a]"
   },
   {
     number: "04",
-    title: "Cloud & Deployment",
-    text: "Deploying resilient, containerized multi-tenant services using Docker, GitHub Actions CI/CD workflows, and optimized cloud hosting.",
-    tag: "DEVOPS & CLOUD",
+    title: "Mobile App Development",
+    text: "Designing and building mobile applications using Android Studio, Flutter, and Dart to deliver practical cross-platform client experiences.",
+    tag: "ANDROID STUDIO · FLUTTER · DART",
     gradient: "from-[#1d090b] via-[#101010] to-[#080808]"
   }
 ];
@@ -43,22 +43,24 @@ const Expertise = () => {
     const cards = cardRefs.current;
     if (!cards.length) return;
 
-    cards.forEach((card, index) => {
-      if (index === cards.length - 1) return; // Keep the top-most card fully focused
+    const ctx = gsap.context(() => {
+      cards.forEach((card, index) => {
+        if (index === cards.length - 1) return; // Keep the top-most card fully focused
 
-      gsap.to(card, {
-        scale: 0.92 - index * 0.025,
-        y: -15 - index * 8,
-        filter: "blur(6px)",
-        opacity: 0.4,
-        scrollTrigger: {
-          trigger: card,
-          start: `top ${90 + index * 20}px`,
-          end: "bottom top",
-          scrub: true,
-        }
+        gsap.to(card, {
+          scale: 0.92 - index * 0.025,
+          y: -15 - index * 8,
+          filter: "blur(6px)",
+          opacity: 0.4,
+          scrollTrigger: {
+            trigger: card,
+            start: `top ${90 + index * 20}px`,
+            end: "bottom top",
+            scrub: true,
+          }
+        });
       });
-    });
+    }, containerRef);
 
     // Magnetic mouse highlight per card
     const handleMouseMove = (e, card) => {
@@ -69,15 +71,17 @@ const Expertise = () => {
       card.style.setProperty('--mouse-y', `${y}px`);
     };
 
+    const cleanups = [];
     cards.forEach((card) => {
       if (!card) return;
       const listener = (e) => handleMouseMove(e, card);
       card.addEventListener('mousemove', listener);
-      return () => card.removeEventListener('mousemove', listener);
+      cleanups.push(() => card.removeEventListener('mousemove', listener));
     });
 
     return () => {
-      ScrollTrigger.getAll().forEach((t) => t.kill());
+      ctx.revert();
+      cleanups.forEach((fn) => fn());
     };
   }, []);
 
@@ -105,17 +109,17 @@ const Expertise = () => {
               <span className="w-1.5 h-1.5 rounded-full bg-red-600 animate-ping"></span>
               <span className="text-red-500 font-bold">EPISODE 02</span>
               <span className="text-white/40">|</span>
-              <span>CORE COMPETENCIES</span>
+              <span>EXPERIENCE &amp; EXPERTISE</span>
             </div>
             <h2 className="text-3xl md:text-5xl font-black text-white tracking-tight leading-tight">
-              DIRECTOR'S CUT <br />
+              VIBESOFT // <br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-500 via-rose-600 to-red-700 drop-shadow-[0_0_25px_rgba(229,9,20,0.35)]">
-                TECHNICAL CAPABILITIES.
+                FULL STACK DEVELOPER.
               </span>
             </h2>
           </div>
           <p className="text-white/60 text-xs md:text-sm font-light leading-relaxed max-w-xs">
-            Merging full-stack engineering, scalable microservices, and AI integrations into production-ready platforms.
+            7 June 2026 — Present. Contributing across client websites, web applications, CMS &amp; e-commerce, APIs, databases, and mobile apps.
           </p>
         </div>
 
