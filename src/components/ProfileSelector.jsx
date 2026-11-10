@@ -2,7 +2,7 @@ import { useCallback, useEffect, useLayoutEffect, useRef, useState } from 'react
 import { gsap } from 'gsap';
 import { useProfile } from '../context/ProfileContext';
 import exploreImg from '../assets/Portfolio/IMG_2397.jpg';
-import developerImg from '../assets/Portfolio/IMG_3233.jpg';
+import developerImg from '../assets/Portfolio/b2affbd4-f396-4bee-8ec8-6cecfae347ff.jpg';
 import recruiterImg from '../assets/Portfolio/IMG_2399.jpg';
 import clientAvatarImg from '../assets/Portfolio/netflix.png';
 import '../styles/ProfileSelector.css';
@@ -17,7 +17,7 @@ const PROFILE_AVATARS = Object.freeze({
   developer: Object.freeze({
     src: developerImg,
     alt: 'Developer — Kunal Sengar',
-    objectPosition: '50% 18%',
+    objectPosition: '50% 34%',
   }),
   recruiter: Object.freeze({
     src: recruiterImg,

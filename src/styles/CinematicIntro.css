@@ -1,4 +1,4 @@
-/* Scoped Netflix-Inspired Cinematic Intro Styles (Full-Viewport Darkness & Crimson Light Streaks) */
+/* Scoped Phase B6 Cinematic Intro Styles — Pure Darkness, 3D Crimson Light Tunnel & Light-Formed Name Reveal */
 
 .ci-overlay {
   position: fixed;
@@ -16,7 +16,7 @@
     max(16px, env(safe-area-inset-bottom)) max(18px, env(safe-area-inset-left));
 }
 
-/* Layered Cinema Atmosphere, Crimson Light Streaks & Theater Vignette */
+/* Layered Cinema Atmosphere, 3D Crimson Light Tunnel & Theater Vignette */
 .ci-atmosphere {
   position: absolute;
   inset: 0;
@@ -27,26 +27,180 @@
 
 .ci-theater-glow {
   position: absolute;
-  inset: -10%;
+  inset: -12%;
+  opacity: 0;
   background:
     radial-gradient(
-      ellipse 60% 44% at 50% 48%,
-      rgba(229, 9, 20, 0.24) 0%,
-      rgba(128, 7, 15, 0.12) 42%,
-      transparent 74%
+      ellipse 46% 36% at 50% 48%,
+      rgba(229, 9, 20, 0.28) 0%,
+      rgba(130, 6, 14, 0.12) 42%,
+      transparent 72%
     ),
     radial-gradient(
-      ellipse 72% 16% at 50% 88%,
-      rgba(229, 9, 20, 0.1) 0%,
-      transparent 70%
+      ellipse 68% 18% at 50% 88%,
+      rgba(229, 9, 20, 0.14) 0%,
+      transparent 68%
     );
   will-change: transform, opacity;
 }
 
-/* Volumetric Crimson Light Ribbons Moving Through Darkness */
-.ci-streaks-stage {
+/* Phase B9: 3-Layer Deep Space Starfield (Activates Strictly After Name Reveal) */
+.ci-starfield-stage {
   position: absolute;
   inset: 0;
+  opacity: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 3;
+  /* Preserve deep black focal sanctuary behind face & portrait core while opening cosmos around subject */
+  -webkit-mask-image: radial-gradient(
+    ellipse 36% 42% at 50% 47%,
+    rgba(0, 0, 0, 0) 0%,
+    rgba(0, 0, 0, 0.06) 48%,
+    rgba(0, 0, 0, 0.82) 78%,
+    #000000 100%
+  );
+  mask-image: radial-gradient(
+    ellipse 36% 42% at 50% 47%,
+    rgba(0, 0, 0, 0) 0%,
+    rgba(0, 0, 0, 0.06) 48%,
+    rgba(0, 0, 0, 0.82) 78%,
+    #000000 100%
+  );
+  will-change: transform, opacity;
+}
+
+.ci-star-parallax {
+  position: absolute;
+  inset: -4%;
+  pointer-events: none;
+  will-change: transform;
+}
+
+.ci-star-plane {
+  position: absolute;
+  inset: 0;
+  background-repeat: repeat;
+  pointer-events: none;
+  will-change: transform, opacity;
+}
+
+.ci-star-plane--distant-a {
+  animation:
+    ciStarDriftSlow 46s linear infinite alternate,
+    ciStarTwinkleA 7.2s ease-in-out infinite;
+}
+
+.ci-star-plane--distant-b {
+  opacity: 0.72;
+  animation:
+    ciStarDriftSlowRev 54s linear infinite alternate,
+    ciStarTwinkleB 9.4s ease-in-out -3.1s infinite;
+}
+
+.ci-star-plane--mid-a {
+  animation:
+    ciStarDriftMid 34s linear infinite alternate,
+    ciStarTwinkleA 5.6s ease-in-out -1.4s infinite;
+}
+
+.ci-star-plane--mid-b {
+  opacity: 0.85;
+  animation:
+    ciStarDriftMidRev 38s linear infinite alternate,
+    ciStarTwinkleB 6.8s ease-in-out -4.2s infinite;
+}
+
+.ci-star-plane--dust {
+  opacity: 0.75;
+  animation:
+    ciStarDriftDust 30s linear infinite alternate,
+    ciStarDustPulse 10.5s ease-in-out infinite;
+}
+
+@keyframes ciStarDriftSlow {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-12px, -7px, 0);
+  }
+}
+
+@keyframes ciStarDriftSlowRev {
+  0% {
+    transform: translate3d(-6px, -4px, 0);
+  }
+  100% {
+    transform: translate3d(8px, 6px, 0);
+  }
+}
+
+@keyframes ciStarDriftMid {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-18px, 11px, 0);
+  }
+}
+
+@keyframes ciStarDriftMidRev {
+  0% {
+    transform: translate3d(8px, -8px, 0);
+  }
+  100% {
+    transform: translate3d(-10px, 10px, 0);
+  }
+}
+
+@keyframes ciStarDriftDust {
+  0% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  100% {
+    transform: translate3d(16px, -12px, 0) scale(1.02);
+  }
+}
+
+@keyframes ciStarTwinkleA {
+  0%,
+  100% {
+    opacity: 0.56;
+  }
+  50% {
+    opacity: 0.96;
+  }
+}
+
+@keyframes ciStarTwinkleB {
+  0%,
+  100% {
+    opacity: 0.88;
+  }
+  48% {
+    opacity: 0.44;
+  }
+}
+
+@keyframes ciStarDustPulse {
+  0%,
+  100% {
+    opacity: 0.62;
+  }
+  50% {
+    opacity: 0.9;
+  }
+}
+
+/* 3D Perspective Light Tunnel Container */
+.ci-tunnel-stage {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  perspective: 760px;
+  perspective-origin: 50% 48%;
+  transform-style: preserve-3d;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -54,64 +208,161 @@
   will-change: opacity;
 }
 
-.ci-streak {
+.ci-tunnel-floor {
   position: absolute;
-  top: -14%;
-  bottom: -14%;
   left: 50%;
+  bottom: -6%;
+  width: min(92vw, 980px);
+  height: 30%;
+  opacity: 0;
+  transform: translate3d(-50%, 0, 0);
+  background: radial-gradient(
+    ellipse 54% 58% at 50% 82%,
+    rgba(229, 9, 20, 0.24) 0%,
+    rgba(165, 8, 16, 0.1) 42%,
+    transparent 74%
+  );
+  filter: blur(18px);
+  pointer-events: none;
+  will-change: transform, opacity;
+}
+
+/* Individual Multi-Depth Vertical Crimson Light Beams */
+.ci-beam {
+  position: absolute;
+  top: -16%;
+  bottom: -16%;
+  left: 50%;
+  opacity: 0;
   border-radius: 9999px;
   transform-origin: center center;
   mix-blend-mode: screen;
   will-change: transform, opacity;
 }
 
-.ci-streak--crimson {
+.ci-beam--hot {
   background: linear-gradient(
-    180deg,
+    90deg,
     transparent 0%,
-    rgba(190, 8, 18, 0.45) 22%,
-    rgba(229, 9, 20, 0.92) 50%,
-    rgba(190, 8, 18, 0.45) 78%,
+    rgba(229, 9, 20, 0.72) 26%,
+    rgba(255, 118, 126, 0.98) 50%,
+    rgba(229, 9, 20, 0.72) 74%,
     transparent 100%
   );
-  box-shadow: 0 0 28px rgba(229, 9, 20, 0.45);
+  box-shadow:
+    0 0 16px rgba(255, 42, 54, 0.88),
+    0 0 40px rgba(229, 9, 20, 0.62);
 }
 
-.ci-streak--bright {
-  background: linear-gradient(
-    180deg,
-    transparent 0%,
-    rgba(229, 9, 20, 0.55) 20%,
-    rgba(255, 76, 84, 0.96) 50%,
-    rgba(229, 9, 20, 0.55) 80%,
-    transparent 100%
-  );
-  box-shadow: 0 0 22px rgba(255, 65, 75, 0.55);
+.ci-beam--blade {
+  background:
+    linear-gradient(
+      180deg,
+      transparent 0%,
+      rgba(255, 64, 76, 0.2) 12%,
+      rgba(255, 92, 102, 0.95) 50%,
+      rgba(255, 64, 76, 0.2) 88%,
+      transparent 100%
+    ),
+    linear-gradient(
+      90deg,
+      transparent 0%,
+      rgba(196, 8, 18, 0.7) 22%,
+      rgba(245, 22, 34, 0.98) 50%,
+      rgba(196, 8, 18, 0.7) 78%,
+      transparent 100%
+    );
+  box-shadow:
+    0 0 20px rgba(229, 9, 20, 0.75),
+    0 0 48px rgba(229, 9, 20, 0.36);
 }
 
-.ci-streak--ember {
+.ci-beam--crimson {
   background: linear-gradient(
-    180deg,
+    90deg,
     transparent 0%,
-    rgba(140, 6, 14, 0.35) 24%,
-    rgba(210, 14, 24, 0.72) 50%,
-    rgba(140, 6, 14, 0.35) 76%,
+    rgba(196, 8, 18, 0.36) 24%,
+    rgba(229, 9, 20, 0.9) 50%,
+    rgba(196, 8, 18, 0.36) 76%,
     transparent 100%
   );
+  -webkit-mask-image: linear-gradient(
+    180deg,
+    transparent 0%,
+    #000 18%,
+    #000 82%,
+    transparent 100%
+  );
+  mask-image: linear-gradient(
+    180deg,
+    transparent 0%,
+    #000 18%,
+    #000 82%,
+    transparent 100%
+  );
+  box-shadow: 0 0 26px rgba(229, 9, 20, 0.42);
+}
+
+.ci-beam--ember {
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(130, 6, 12, 0.28) 22%,
+    rgba(205, 12, 22, 0.68) 50%,
+    rgba(130, 6, 12, 0.28) 78%,
+    transparent 100%
+  );
+  -webkit-mask-image: linear-gradient(
+    180deg,
+    transparent 0%,
+    #000 22%,
+    #000 78%,
+    transparent 100%
+  );
+  mask-image: linear-gradient(
+    180deg,
+    transparent 0%,
+    #000 22%,
+    #000 78%,
+    transparent 100%
+  );
+}
+
+/* Central Ignition Flash Ring Burst When Converging Beams Collide */
+.ci-center-flash {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: clamp(140px, 28vw, 340px);
+  height: clamp(72px, 14dvh, 140px);
+  opacity: 0;
+  transform: translate3d(-50%, -50%, 0) scale(0.4);
+  border-radius: 9999px;
+  background: radial-gradient(
+    ellipse 50% 50% at 50% 50%,
+    rgba(255, 196, 200, 0.92) 0%,
+    rgba(229, 9, 20, 0.62) 34%,
+    transparent 74%
+  );
+  mix-blend-mode: screen;
+  filter: blur(8px);
+  pointer-events: none;
+  will-change: transform, opacity;
 }
 
 .ci-vignette {
   position: absolute;
   inset: 0;
+  z-index: 2;
   background: radial-gradient(
     circle at 50% 48%,
-    transparent 34%,
-    rgba(0, 0, 0, 0.62) 74%,
-    rgba(0, 0, 0, 0.94) 100%
+    transparent 32%,
+    rgba(0, 0, 0, 0.66) 72%,
+    rgba(0, 0, 0, 0.96) 100%
   );
 }
 
-/* Top Bar Holding Subtle Brand Cue & Accessible Skip Intro Button */
+/* Top Bar — Hidden During Scene 01 Pure Blackout, Revealed Softly at Ignition & Always Reachable on Tab Focus */
 .ci-topbar {
   position: relative;
   z-index: 30;
@@ -123,6 +374,12 @@
   justify-content: space-between;
   gap: 12px;
   min-height: 44px;
+  opacity: 0;
+}
+
+.ci-topbar:focus-within,
+.ci-overlay--selector .ci-topbar {
+  opacity: 1 !important;
 }
 
 .ci-brand-cue {
@@ -135,6 +392,7 @@
   text-transform: uppercase;
   white-space: nowrap;
   color: rgba(255, 255, 255, 0.48);
+  text-shadow: 0 1px 10px rgba(0, 0, 0, 0.9);
 }
 
 .ci-brand-dot {
@@ -225,10 +483,11 @@
 }
 
 .ci-hero-stage {
+  position: relative;
   width: 100%;
-  max-width: 960px;
+  max-width: 1040px;
   height: 100%;
-  padding: 8px 12px 24px;
+  padding: 4px 12px 10px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -236,64 +495,219 @@
   text-align: center;
 }
 
-/* Primary Cinematic Wordmark + Controlled Crimson Optical Sweep */
+/* Single-Line Light-Formed Wordmark Rig */
 .ci-name-block {
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 12px;
-  will-change: transform, opacity;
+  gap: clamp(7px, 1dvh, 10px);
 }
 
-.ci-name-title {
+.ci-wordmark-rig {
+  --beam-pct: 0;
+  --trace-pct: 0;
+  --trace-mid-alpha: 0;
+  --solid-pct: 0;
+  --solid-mid-alpha: 0;
+  --t-l-soft: calc(min(max(var(--trace-pct) - 8, 0), 50) * 1%);
+  --t-l-in: calc(min(max(var(--trace-pct), 0), 50) * 1%);
+  --t-r-in: calc(max(min(100 - var(--trace-pct), 100), 50) * 1%);
+  --t-r-soft: calc(max(min(108 - var(--trace-pct), 100), 50) * 1%);
+  --s-l-soft: calc(min(max(var(--solid-pct) - 8, 0), 50) * 1%);
+  --s-l-in: calc(min(max(var(--solid-pct), 0), 50) * 1%);
+  --s-r-in: calc(max(min(100 - var(--solid-pct), 100), 50) * 1%);
+  --s-r-soft: calc(max(min(108 - var(--solid-pct), 100), 50) * 1%);
   position: relative;
+  display: inline-grid;
+  place-items: center;
+  max-width: 100%;
+  padding: 4px 0;
+}
+
+.ci-wordmark {
+  grid-area: 1 / 1;
   margin: 0;
-  display: inline-block;
   font-family: 'Bebas Neue', 'Impact', sans-serif;
-  font-size: clamp(2.25rem, 4.9vw, 4.25rem);
+  font-size: clamp(2.5rem, 4.7vw, 4.25rem);
   font-weight: 400;
-  line-height: 0.96;
-  letter-spacing: 0.28em;
-  padding-left: 0.28em; /* compensates right tracking for dead-center visual balance */
+  line-height: 0.94;
+  letter-spacing: 0.25em;
+  padding-left: 0.25em; /* balances trailing letter-spacing for dead-center convergence */
+  text-transform: uppercase;
+  white-space: nowrap;
+  user-select: none;
+}
+
+/* Layer 1: Optical Crimson Filament Trace Leading Right Behind Converging Cutter Beams */
+.ci-wordmark--trace {
+  opacity: 0;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+  background-image:
+    repeating-linear-gradient(
+      90deg,
+      rgba(255, 132, 138, 0.98) 0px,
+      rgba(255, 42, 54, 0.98) 2px,
+      rgba(229, 9, 20, 0.96) 4px,
+      rgba(128, 6, 14, 0.88) 6px
+    );
+  -webkit-mask-image: linear-gradient(
+    90deg,
+    #000 0%,
+    #000 var(--t-l-soft),
+    rgba(0, 0, 0, var(--trace-mid-alpha)) var(--t-l-in),
+    rgba(0, 0, 0, var(--trace-mid-alpha)) var(--t-r-in),
+    #000 var(--t-r-soft),
+    #000 100%
+  );
+  mask-image: linear-gradient(
+    90deg,
+    #000 0%,
+    #000 var(--t-l-soft),
+    rgba(0, 0, 0, var(--trace-mid-alpha)) var(--t-l-in),
+    rgba(0, 0, 0, var(--trace-mid-alpha)) var(--t-r-in),
+    #000 var(--t-r-soft),
+    #000 100%
+  );
+  pointer-events: none;
+}
+
+/* Layer 2: Solid Crisp White Wordmark + Final Sweeping Crimson Light Pass */
+.ci-wordmark--solid {
+  opacity: 0;
   color: transparent;
   -webkit-text-fill-color: transparent;
   -webkit-background-clip: text;
   background-clip: text;
   background-image: linear-gradient(
     112deg,
-    #f5f5f5 0%,
-    #ffffff 39%,
-    #ffd2d5 44%,
+    #f3f3f3 0%,
+    #ffffff 38%,
+    #ffd5d9 44%,
     #e50914 50%,
-    #ffb3b8 56%,
-    #ffffff 61%,
-    #f5f5f5 100%
+    #ffb8be 56%,
+    #ffffff 62%,
+    #f3f3f3 100%
   );
-  background-size: 300% 100%;
+  background-size: 320% 100%;
   background-position: 100% 0;
-  text-transform: uppercase;
-  white-space: nowrap;
-  filter: drop-shadow(0 10px 26px rgba(0, 0, 0, 0.92))
-    drop-shadow(0 0 12px rgba(229, 9, 20, 0.16));
+  -webkit-mask-image: linear-gradient(
+    90deg,
+    #000 0%,
+    #000 var(--s-l-soft),
+    rgba(0, 0, 0, var(--solid-mid-alpha)) var(--s-l-in),
+    rgba(0, 0, 0, var(--solid-mid-alpha)) var(--s-r-in),
+    #000 var(--s-r-soft),
+    #000 100%
+  );
+  mask-image: linear-gradient(
+    90deg,
+    #000 0%,
+    #000 var(--s-l-soft),
+    rgba(0, 0, 0, var(--solid-mid-alpha)) var(--s-l-in),
+    rgba(0, 0, 0, var(--solid-mid-alpha)) var(--s-r-in),
+    #000 var(--s-r-soft),
+    #000 100%
+  );
+  will-change: background-position, opacity;
+}
+
+/* Synchronized Converging Vertical Cutter Beams Extending Above/Below the Wordmark */
+.ci-beam-track {
+  position: absolute;
+  inset: -115% 0;
+  pointer-events: none;
+  z-index: 4;
+}
+
+.ci-cutter-carrier {
+  position: absolute;
+  inset: 0;
+  will-change: transform, opacity;
+}
+
+.ci-cutter-carrier--left {
+  transform: translate3d(calc(var(--beam-pct, 0) * 1%), 0, 0);
+}
+
+.ci-cutter-carrier--right {
+  transform: translate3d(calc(var(--beam-pct, 0) * -1%), 0, 0);
+}
+
+.ci-cutter-beam {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 30px;
+  opacity: 0;
+  background: radial-gradient(
+    ellipse 50% 48% at 50% 50%,
+    rgba(255, 118, 126, 0.94) 0%,
+    rgba(245, 22, 34, 0.82) 22%,
+    rgba(205, 8, 18, 0.38) 52%,
+    transparent 84%
+  );
+  mix-blend-mode: screen;
+  will-change: opacity, transform;
+}
+
+.ci-cutter-beam::before {
+  content: '';
+  position: absolute;
+  top: 4%;
+  bottom: 4%;
+  left: 50%;
+  width: 2px;
+  transform: translateX(-50%);
+  background: linear-gradient(
+    180deg,
+    transparent 0%,
+    rgba(229, 9, 20, 0.65) 18%,
+    rgba(255, 148, 154, 0.98) 50%,
+    rgba(229, 9, 20, 0.65) 82%,
+    transparent 100%
+  );
+  box-shadow: 0 0 16px rgba(255, 42, 54, 0.92);
+}
+
+.ci-cutter-beam--left {
+  left: 0;
+  transform: translate3d(-50%, 0, 0);
+}
+
+.ci-cutter-beam--right {
+  right: 0;
+  transform: translate3d(50%, 0, 0);
 }
 
 .ci-name-rule {
-  width: clamp(54px, 7.5vw, 88px);
+  opacity: 0;
+  width: clamp(92px, 15vw, 180px);
   height: 1px;
   border-radius: 9999px;
-  background: linear-gradient(90deg, transparent 0%, rgba(229, 9, 20, 0.9) 50%, transparent 100%);
-  box-shadow: 0 0 10px rgba(229, 9, 20, 0.35);
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(229, 9, 20, 0.55) 18%,
+    rgba(255, 78, 88, 0.98) 50%,
+    rgba(229, 9, 20, 0.55) 82%,
+    transparent 100%
+  );
+  box-shadow: 0 0 12px rgba(229, 9, 20, 0.45);
   transform-origin: center center;
   will-change: transform, opacity;
 }
 
-/* Official 3:4 Portrait Blended Naturally Into Crimson Studio Darkness */
+/* Official Portrait (IMG_2399) Scaled Large & Blended Into Silver/White Cosmic Depth */
 .ci-portrait-stage {
-  margin-top: clamp(12px, 2.2dvh, 22px);
+  margin-top: clamp(2px, 0.6dvh, 6px);
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: clamp(10px, 1.8dvh, 16px);
+  gap: clamp(2px, 0.5dvh, 6px);
 }
 
 .ci-portrait-frame {
@@ -305,37 +719,39 @@
 
 .ci-portrait-halo {
   position: absolute;
-  inset: -26%;
+  inset: -16% -20%;
+  opacity: 0;
   border-radius: 9999px;
   background: radial-gradient(
-    circle at 50% 44%,
-    rgba(229, 9, 20, 0.28) 0%,
-    rgba(130, 8, 16, 0.12) 48%,
-    transparent 74%
+    ellipse 62% 54% at 52% 44%,
+    rgba(232, 238, 248, 0.12) 0%,
+    rgba(182, 196, 214, 0.05) 48%,
+    transparent 76%
   );
-  filter: blur(32px);
+  filter: blur(34px);
   pointer-events: none;
   will-change: transform, opacity;
 }
 
 .ci-portrait-wrap {
   position: relative;
-  height: clamp(232px, 41dvh, 366px);
-  aspect-ratio: 3 / 4;
+  opacity: 0;
+  width: min(88vw, clamp(490px, 46vw, 648px));
+  height: clamp(320px, 61dvh, 558px);
   background: transparent;
   -webkit-mask-image: radial-gradient(
-    ellipse 48% 49% at 50% 45%,
-    #000000 50%,
-    rgba(0, 0, 0, 0.88) 64%,
+    ellipse 48% 46% at 50% 48%,
+    #000000 48%,
+    rgba(0, 0, 0, 0.9) 65%,
     rgba(0, 0, 0, 0.42) 82%,
-    transparent 98%
+    transparent 97%
   );
   mask-image: radial-gradient(
-    ellipse 48% 49% at 50% 45%,
-    #000000 50%,
-    rgba(0, 0, 0, 0.88) 64%,
+    ellipse 48% 46% at 50% 48%,
+    #000000 48%,
+    rgba(0, 0, 0, 0.9) 65%,
     rgba(0, 0, 0, 0.42) 82%,
-    transparent 98%
+    transparent 97%
   );
   will-change: transform, opacity;
 }
@@ -344,9 +760,9 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: 50% 26%;
+  object-position: 54% 64%;
   display: block;
-  filter: contrast(1.03) saturate(0.98);
+  filter: contrast(1.06) brightness(0.92) saturate(0.95);
 }
 
 .ci-portrait-vignette {
@@ -355,18 +771,32 @@
   pointer-events: none;
   background:
     radial-gradient(
-      ellipse 62% 62% at 50% 42%,
+      ellipse 34% 40% at 15% 28%,
+      rgba(0, 0, 0, 0.72) 0%,
+      rgba(0, 0, 0, 0.34) 46%,
+      transparent 76%
+    ),
+    radial-gradient(
+      ellipse 38% 58% at 8% 54%,
+      rgba(0, 0, 0, 0.66) 0%,
+      rgba(0, 0, 0, 0.24) 44%,
+      transparent 72%
+    ),
+    radial-gradient(
+      ellipse 56% 52% at 52% 47%,
       transparent 44%,
-      rgba(0, 0, 0, 0.45) 78%,
-      rgba(0, 0, 0, 0.92) 100%
+      rgba(0, 0, 0, 0.44) 72%,
+      rgba(0, 0, 0, 0.96) 94%,
+      #000000 100%
     ),
     linear-gradient(
       180deg,
-      rgba(0, 0, 0, 0.22) 0%,
+      rgba(0, 0, 0, 0.88) 0%,
+      rgba(0, 0, 0, 0.32) 10%,
       transparent 22%,
-      transparent 56%,
-      rgba(0, 0, 0, 0.68) 84%,
-      rgba(0, 0, 0, 0.96) 100%
+      transparent 66%,
+      rgba(0, 0, 0, 0.72) 86%,
+      #000000 100%
     );
 }
 
@@ -390,25 +820,90 @@
 
 .ci-spec-title {
   margin: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.55em;
   font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
   font-size: clamp(0.65rem, 1.05vw, 0.78rem);
   font-weight: 600;
-  letter-spacing: 0.26em;
-  padding-left: 0.26em;
+  letter-spacing: 0.24em;
+  padding-left: 0.24em;
   text-transform: uppercase;
-  color: rgba(239, 68, 68, 0.9);
+  color: rgba(239, 68, 68, 0.92);
 }
 
-/* Mobile Typography & Height Scaling */
-@media (max-width: 767px) {
-  .ci-name-title {
-    font-size: clamp(1.78rem, 8.6vw, 3rem);
-    letter-spacing: 0.2em;
-    padding-left: 0.2em;
+.ci-id-item {
+  opacity: 0;
+  will-change: transform, opacity;
+}
+
+.ci-id-token {
+  display: inline-block;
+}
+
+.ci-spec-sep {
+  opacity: 0.55;
+  color: rgba(255, 255, 255, 0.45);
+}
+
+/* Tablet Scaling */
+@media (max-width: 1023px) {
+  .ci-wordmark {
+    font-size: clamp(2.1rem, 5.4vw, 3.6rem);
+    letter-spacing: 0.22em;
+    padding-left: 0.22em;
   }
 
   .ci-portrait-wrap {
-    height: clamp(205px, 40dvh, 320px);
+    width: min(88vw, clamp(476px, 68vw, 560px));
+    height: clamp(300px, 53dvh, 552px);
+  }
+}
+
+/* Mobile Typography & Responsive Portrait Width/Height Scaling */
+@media (max-width: 767px) {
+  .ci-hero-stage {
+    padding: 4px 8px 8px;
+  }
+
+  .ci-starfield-stage {
+    -webkit-mask-image: radial-gradient(
+      ellipse 46% 32% at 50% 47%,
+      rgba(0, 0, 0, 0) 0%,
+      rgba(0, 0, 0, 0.08) 48%,
+      rgba(0, 0, 0, 0.86) 78%,
+      #000000 100%
+    );
+    mask-image: radial-gradient(
+      ellipse 46% 32% at 50% 47%,
+      rgba(0, 0, 0, 0) 0%,
+      rgba(0, 0, 0, 0.08) 48%,
+      rgba(0, 0, 0, 0.86) 78%,
+      #000000 100%
+    );
+  }
+
+  .ci-star-plane--distant-b {
+    opacity: 0.45;
+    animation: ciStarDriftSlowRev 54s linear infinite alternate;
+  }
+
+  .ci-star-plane--dust {
+    opacity: 0.42;
+    animation: ciStarDriftDust 34s linear infinite alternate;
+  }
+
+  .ci-wordmark {
+    font-size: clamp(1.75rem, 7.6vw, 2.75rem);
+    letter-spacing: 0.19em;
+    padding-left: 0.19em;
+  }
+
+  .ci-portrait-wrap {
+    width: min(94vw, clamp(336px, 91vw, 412px));
+    height: clamp(270px, 54dvh, 504px);
   }
 
   .ci-role-title {
@@ -419,8 +914,8 @@
 
   .ci-spec-title {
     font-size: clamp(0.62rem, 2.7vw, 0.76rem);
-    letter-spacing: 0.2em;
-    padding-left: 0.2em;
+    letter-spacing: 0.18em;
+    padding-left: 0.18em;
   }
 }
 
@@ -428,24 +923,39 @@
 @media (max-width: 360px), (max-height: 600px) {
   .ci-overlay {
     padding-top: 10px;
-    padding-bottom: 12px;
+    padding-bottom: 10px;
   }
 
   .ci-hero-stage {
-    padding-bottom: 12px;
+    padding: 2px 6px 6px;
+  }
+
+  .ci-wordmark {
+    font-size: clamp(1.48rem, 7vw, 2.05rem);
+    letter-spacing: 0.16em;
+    padding-left: 0.16em;
   }
 
   .ci-portrait-stage {
-    margin-top: 10px;
-    gap: 8px;
+    margin-top: 6px;
+    gap: 4px;
   }
 
   .ci-portrait-wrap {
-    height: clamp(182px, 36dvh, 236px);
+    width: min(92vw, 294px);
+    height: clamp(230px, 49dvh, 300px);
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .ci-topbar {
+    opacity: 1;
+  }
+
+  .ci-star-plane {
+    animation: none !important;
+  }
+
   .ci-skip-btn {
     transition: none;
   }

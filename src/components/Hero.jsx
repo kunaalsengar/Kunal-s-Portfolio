@@ -235,16 +235,18 @@ const Hero = ({ introCompleted = true }) => {
         <div className="grid grid-cols-1 lg:grid-cols-12 items-center gap-8 my-auto">
           
           {/* Left Side: Developer Story & Description */}
-          <div className="lg:col-span-5 flex flex-col items-start space-y-4 xl:space-y-5 text-left">
+          <div className="lg:col-span-5 min-w-0 w-full flex flex-col items-start space-y-4 xl:space-y-5 text-left">
             
             <div className="hero-anim-item flex items-center gap-3">
               <span className="px-2.5 py-0.5 bg-red-600 text-white font-black text-xs rounded tracking-widest shadow-[0_0_20px_rgba(229,9,20,0.8)] animate-pulse">AVAILABLE</span>
               <span className="text-white/80 text-xs font-mono tracking-widest uppercase">Freelance &amp; Full-Time</span>
             </div>
 
-            <h1 className="hero-anim-item text-5xl md:text-7xl lg:text-6xl xl:text-7xl font-black tracking-tighter text-white leading-[0.95] drop-shadow-[0_15px_30px_rgba(0,0,0,0.9)]">
-              KUNAL SENGAR <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-500 via-rose-600 to-red-700 drop-shadow-[0_0_35px_rgba(220,38,38,0.5)]">
+            <h1 className="hero-anim-item w-full max-w-full font-black text-white drop-shadow-[0_15px_30px_rgba(0,0,0,0.9)]">
+              <span className="block whitespace-nowrap text-[clamp(2rem,9.2vw,3.6rem)] lg:text-[clamp(2.65rem,3.85vw,3.45rem)] tracking-[-0.03em] leading-[1.02]">
+                KUNAL SENGAR
+              </span>
+              <span className="mt-1.5 block whitespace-nowrap text-[clamp(1.22rem,5.3vw,2.2rem)] lg:text-[clamp(1.52rem,2.3vw,2.04rem)] tracking-[-0.015em] leading-[1.08] text-transparent bg-clip-text bg-gradient-to-r from-red-500 via-rose-600 to-red-700 drop-shadow-[0_0_35px_rgba(220,38,38,0.5)]">
                 FULL STACK DEVELOPER
               </span>
             </h1>
@@ -261,9 +263,23 @@ const Hero = ({ introCompleted = true }) => {
               Engineering Digital Experiences. Building Intelligent Futures.
             </p>
 
-            <div className="hero-anim-item flex flex-col gap-1 text-xs font-mono text-white/60">
-              <div><span className="text-red-500 font-bold">LOCATION //</span> Kashipur, Uttarakhand, India</div>
-              <div><span className="text-red-500 font-bold">STATUS //</span> Available for Freelance &amp; Full-Time Opportunities</div>
+            <div className="hero-anim-item flex flex-col gap-2 text-xs sm:text-[13px] font-sans w-full">
+              <div className="flex items-baseline gap-x-4">
+                <span className="w-[74px] shrink-0 text-[11px] font-semibold uppercase tracking-[0.18em] text-red-500">
+                  LOCATION
+                </span>{' '}
+                <span className="text-white/85 font-normal tracking-[0.01em] leading-snug">
+                  Kashipur, Uttarakhand, India
+                </span>
+              </div>
+              <div className="flex items-baseline gap-x-4">
+                <span className="w-[74px] shrink-0 text-[11px] font-semibold uppercase tracking-[0.18em] text-red-500">
+                  STATUS
+                </span>{' '}
+                <span className="text-white/85 font-normal tracking-[0.01em] leading-snug">
+                  Available for Freelance &amp; Full-Time Opportunities
+                </span>
+              </div>
             </div>
 
             {/* Action Button Set */}
